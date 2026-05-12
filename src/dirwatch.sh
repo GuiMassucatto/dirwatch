@@ -3,20 +3,18 @@
 # ==========================
 # DIRWATCH
 # Sistema de monitoramento
-# de diretórios em Bash
 # ==========================
 
-# Carrega configurações
 source ./config/config.conf
 
 # Verifica diretório
 if [[ ! -d "$DIR_MONITORADO" ]]
 then
-    echo "Erro: diretório monitorado não existe."
+    echo "Erro: diretório não existe."
     exit 1
 fi
 
-# Verifica log
+# Cria log
 if [[ ! -f "$LOG_FILE" ]]
 then
     touch "$LOG_FILE"
@@ -27,57 +25,74 @@ echo " DIRWATCH INICIADO"
 echo "===================================="
 echo "Monitorando: $DIR_MONITORADO"
 echo "Intervalo: ${INTERVALO}s"
-echo "Log: $LOG_FILE"
 echo "===================================="
 
 # Estado inicial
-estado_antigo=$(ls -l "$DIR_MONITORADO")
+estado_antigo=""
+
+for arquivo in $(ls "$DIR_MONITORADO")
+do
+    tamanho=$(wc -c < "$DIR_MONITORADO/$arquivo")
+
+    estado_antigo="$estado_antigo
+$arquivo:$tamanho"
+done
 
 while true
 do
-    estado_novo=$(ls -l "$DIR_MONITORADO")
+    estado_novo=""
+
+    # Monta estado novo
+    for arquivo in $(ls "$DIR_MONITORADO")
+    do
+        tamanho=$(wc -c < "$DIR_MONITORADO/$arquivo")
+
+        estado_novo="$estado_novo
+$arquivo:$tamanho"
+    done
 
     # ==========================
-    # VERIFICAR CRIAÇÕES
+    # CRIAÇÃO E MODIFICAÇÃO
     # ==========================
     for arquivo in $(ls "$DIR_MONITORADO")
     do
-        if ! echo "$estado_antigo" | grep -q "$arquivo"
+        tamanho_novo=$(wc -c < "$DIR_MONITORADO/$arquivo")
+
+        linha_antiga=$(echo "$estado_antigo" | grep "^$arquivo:")
+
+        # Arquivo criado
+        if [[ -z "$linha_antiga" ]]
         then
             mensagem="[CRIADO] $arquivo em $(date)"
 
             echo "$mensagem"
             echo "$mensagem" >> "$LOG_FILE"
-        fi
-    done
+        else
+            tamanho_antigo=$(echo "$linha_antiga" | cut -d ":" -f 2)
 
-    # ==========================
-    # VERIFICAR REMOÇÕES
-    # ==========================
-    for arquivo in $(echo "$estado_antigo" | grep -v "^total" | cut -d " " -f 9)
-    do
-        if ! ls "$DIR_MONITORADO" | grep -q "^$arquivo$"
-        then
-            mensagem="[REMOVIDO] $arquivo em $(date)"
-
-            echo "$mensagem"
-            echo "$mensagem" >> "$LOG_FILE"
-        fi
-    done
-
-    # ==========================
-    # VERIFICAR MODIFICAÇÕES
-    # ==========================
-    for arquivo in $(ls "$DIR_MONITORADO")
-    do
-        linha_antiga=$(echo "$estado_antigo" | grep "$arquivo")
-        linha_nova=$(echo "$estado_novo" | grep "$arquivo")
-
-        if [[ -n "$linha_antiga" && -n "$linha_nova" ]]
-        then
-            if [[ "$linha_antiga" != "$linha_nova" ]]
+            # Arquivo modificado
+            if [[ "$tamanho_antigo" != "$tamanho_novo" ]]
             then
                 mensagem="[MODIFICADO] $arquivo em $(date)"
+
+                echo "$mensagem"
+                echo "$mensagem" >> "$LOG_FILE"
+            fi
+        fi
+    done
+
+    # ==========================
+    # REMOÇÃO
+    # ==========================
+    for linha in $(echo "$estado_antigo")
+    do
+        arquivo=$(echo "$linha" | cut -d ":" -f 1)
+
+        if [[ -n "$arquivo" ]]
+        then
+            if ! ls "$DIR_MONITORADO" | grep -q "^$arquivo$"
+            then
+                mensagem="[REMOVIDO] $arquivo em $(date)"
 
                 echo "$mensagem"
                 echo "$mensagem" >> "$LOG_FILE"
