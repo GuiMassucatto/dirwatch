@@ -7,6 +7,15 @@
 
 source ./config/config.conf
 
+# ==========================
+# CORES
+# ==========================
+
+VERDE='\033[0;32m'
+VERMELHO='\033[0;31m'
+AMARELO='\033[1;33m'
+RESET='\033[0m'
+
 # Verifica diretório
 if [[ ! -d "$DIR_MONITORADO" ]]
 then
@@ -42,7 +51,9 @@ while true
 do
     estado_novo=""
 
-    # Monta estado novo
+    # ==========================
+    # MONTA ESTADO NOVO
+    # ==========================
     for arquivo in $(ls "$DIR_MONITORADO")
     do
         tamanho=$(wc -c < "$DIR_MONITORADO/$arquivo")
@@ -65,8 +76,9 @@ $arquivo:$tamanho"
         then
             mensagem="[CRIADO] $arquivo em $(date)"
 
-            echo "$mensagem"
+            echo -e "${VERDE}$mensagem${RESET}"
             echo "$mensagem" >> "$LOG_FILE"
+
         else
             tamanho_antigo=$(echo "$linha_antiga" | cut -d ":" -f 2)
 
@@ -75,7 +87,7 @@ $arquivo:$tamanho"
             then
                 mensagem="[MODIFICADO] $arquivo em $(date)"
 
-                echo "$mensagem"
+                echo -e "${AMARELO}$mensagem${RESET}"
                 echo "$mensagem" >> "$LOG_FILE"
             fi
         fi
@@ -94,7 +106,7 @@ $arquivo:$tamanho"
             then
                 mensagem="[REMOVIDO] $arquivo em $(date)"
 
-                echo "$mensagem"
+                echo -e "${VERMELHO}$mensagem${RESET}"
                 echo "$mensagem" >> "$LOG_FILE"
             fi
         fi
