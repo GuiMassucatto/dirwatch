@@ -1,5 +1,10 @@
 ![Banner](docs/banner-dirwatch.png)
-# DirWatch
+
+<h1 align="left">
+  <img src="docs/icon-dirwatch.png" width="45px">
+  DirWatch
+</h1>
+
 Sistema de Monitoramento de Diretórios em Bash
 
 ---
