@@ -70,7 +70,7 @@ dirwatch/
 | logs/ | Armazenamento dos logs gerados |
 | monitored/ | Diretório monitorado pelo sistema |
 | src/ | Código-fonte principal |
-| tests/ | Scripts auxiliares de testes |
+| tests/ | Script de teste automatizado |
 
 ---
 
@@ -85,6 +85,24 @@ A execução ocorre em ciclos contínuos utilizando um loop ```while```, onde o 
      - Modificação de arquivos
      - Remoção de arquivos
 5. Registra os eventos no terminal e no arquivo de log
+6. Exibe estatísticas de eventos detectados ao encerrar a execução
+7. Permite encerramento controlado via `CTRL+C`
+
+### Inicialização e Encerramento
+
+Ao iniciar a execução, o sistema exibe informações como:
+- Diretório monitorado
+- Intervalo de verificação
+- Horário de início da execução
+
+Além disso, o sistema possui encerramento controlado utilizando o recurso `trap` do Bash, permitindo capturar o evento de interrupção via `CTRL+C`.
+
+Ao ser encerrado, o DirWatch exibe:
+- Horário de encerramento
+- Quantidade de arquivos criados
+- Quantidade de arquivos modificados
+- Quantidade de arquivos removidos
+- Localização do arquivo de log
 
 ---
 
@@ -127,6 +145,14 @@ Para melhorar a visualização durante a execução, o sistema utiliza códigos 
 
 Essa funcionalidade melhora a experiência de uso e facilita a identificação rápida dos eventos detectados.
 
+Além das cores ANSI, o sistema também apresenta:
+- Horário de início da execução
+- Horário de encerramento
+- Estatísticas finais de monitoramento
+- Mensagens organizadas visualmente no terminal
+
+Esses elementos tornam a utilização mais intuitiva e melhoram a experiência do usuário durante o monitoramento.
+
 ---
 
 ## 8. Registro de Logs
@@ -134,7 +160,8 @@ Todos os eventos detectados são registrados automaticamente no arquivo:
 ```text
 logs/monitor.log
 ```
-Isso permite manter histórico das alterações detectadas pelo sistema.
+
+Os logs permitem auditoria e rastreabilidade das alterações detectadas, permitindo manter o histórico das alterações detectadas pelo sistema.
 
 Exemplo de log:
 ```bash
@@ -145,7 +172,27 @@ Exemplo de log:
 
 ---
 
-## 9. Conceitos de Programação Utilizados
+## 9. Testes Automatizados
+
+O projeto possui um script automatizado de testes localizado em:
+
+```text
+tests/teste.sh
+```
+
+Esse script foi desenvolvido com o objetivo de validar rapidamente o funcionamento do sistema.
+
+Durante a execução, o script realiza automaticamente:
+
+- Criação de arquivos
+- Modificação de arquivos
+- Remoção de arquivos
+
+Essas ações permitem verificar se o sistema de monitoramento está detectando corretamente todos os eventos esperados.
+
+---
+
+## 10. Conceitos de Programação Utilizados
 Durante o desenvolvimento do projeto, foram aplicados diversos conceitos estudados na disciplina.
 
 Dentre eles:
@@ -179,7 +226,7 @@ O projeto automatiza completamente o processo de monitoramento de diretórios em
 
 ---
 
-## 10. Controle de Versão com Git e GitHub
+## 11. Controle de Versão com Git e GitHub
 O desenvolvimento do projeto utilizou Git e GitHub para controle de versão e organização do trabalho em equipe.
 Foram utilizados recursos como:
 - Commits frequentes
@@ -191,20 +238,25 @@ Essa abordagem permitiu maior organização e rastreabilidade durante o desenvol
 
 ---
 
-## 11. Uso de Inteligência Artificial
+## 12. Uso de Inteligência Artificial
+
 Conforme solicitado pela disciplina, o projeto contou com apoio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
+
 A IA foi utilizada para:
 - Auxílio na depuração e correção de erros
 - Sugestões de melhoria na organização do código
 - Apoio na estruturação da documentação
 - Auxílio na criação da identidade visual do projeto
+- Sugestões para implementação de cores ANSI no terminal
+- Auxílio na implementação do comando `trap` para encerramento controlado do sistema
 - Revisão de boas práticas em Shell Script
+- Sugestões relacionadas à organização com Git e GitHub
 
-Toda a implementação, testes e validação do sistema foram realizados pelos integrantes do grupo.
+Toda a implementação, testes, validação e entendimento do sistema foram realizados pelos integrantes do grupo.
 
 ---
 
-## 12. Conclusão
+## 13. Conclusão
 O desenvolvimento do DirWatch permitiu aplicar de forma prática diversos conceitos fundamentais relacionados à automação em Linux utilizando Shell Script.
 Além disso, o projeto contribuiu para o aprendizado de:
 - Monitoramento de arquivos
@@ -215,3 +267,5 @@ Além disso, o projeto contribuiu para o aprendizado de:
 - Documentação técnica
 
 O sistema desenvolvido atende aos objetivos propostos pela disciplina, apresentando funcionamento correto, organização adequada e aplicação prática dos conceitos estudados.
+
+Além das funcionalidades básicas de monitoramento, o projeto evoluiu para incorporar melhorias relacionadas à experiência do usuário, como interface colorida, estatísticas de eventos e testes automatizados, tornando o sistema mais completo e robusto.
