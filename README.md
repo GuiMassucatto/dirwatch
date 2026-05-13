@@ -3,7 +3,7 @@
 Sistema de Monitoramento de Diretórios em Bash
 
 ## 📘 Descrição  
-O sistema realiza monitoramento contínuo de diretórios, detectando eventos como:  
+O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos em tempo real, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
 - Criação de arquivos  
 - Modificação de arquivos  
 - Remoção de arquivos  
@@ -22,23 +22,40 @@ Este projeto foi desenvolvido como parte da disciplina de **Laboratório de Ferr
 - Registro de logs automáticos  
 - Interface colorida no terminal
 
+## 📚 Conceitos Utilizados
+
+- Estruturas condicionais (`if`)
+- Estruturas de repetição (`while` e `for`)
+- Manipulação de arquivos e diretórios
+- Automação de tarefas no Linux
+- Monitoramento contínuo de diretórios
+- Controle de versão com Git e GitHub
+- Uso de logs para registro de eventos
+
 ## 📂 Estrutura de Pastas
 ```
 dirwatch/
-├── config/
-├── docs/
-├── logs/
-├── monitored/
-├── src/
-├── tests/
+├── config/  -> Arquivo de configuração
+│   └── config.conf
+├── docs/  -> Documentação e identidade visual
+│   └── banner-dirwatch.png
+├── logs/  -> Logs gerados automaticamente
+│   └── .gitkeep
+├── monitored/  -> Diretório monitorado
+│   └── exemplo.txt
+├── src/  -> Script principal
+│   └── dirwatch.sh
+├── tests/  -> Scripts de testes
+│   └── teste.sh
+├── .gitignore
 └── README.md
 ```
 
 ## 💻 Tecnologias Utilizadas  
-- Bash Shell Script: Linguagem principal do sistema.
-- Linux (Ubuntu): Ambiente de desenvolvimento e execução.
-- Git: Controle de versionamento.
-- GitHub: Hospedagem e colaboração.
+- **Bash Shell Script** → Linguagem principal do sistema
+- **Linux Ubuntu** → Ambiente de desenvolvimento e execução
+- **Git** → Controle de versionamento
+- **GitHub** → Hospedagem do repositório
 
 ## 🚀 Como Executar
 1. Clone o repositório:
