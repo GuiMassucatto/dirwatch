@@ -45,7 +45,7 @@ dirwatch/
 │   └── exemplo.txt
 ├── src/  -> Script principal
 │   └── dirwatch.sh
-├── tests/  -> Scripts de testes
+├── tests/  -> Script de teste
 │   └── teste.sh
 ├── .gitignore
 └── README.md
