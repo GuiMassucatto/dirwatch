@@ -14,6 +14,8 @@ O projeto foi desenvolvido como atividade prática da disciplina de **Laboratór
 
 O principal objetivo do projeto foi desenvolver uma ferramenta capaz de automatizar o monitoramento de diretórios em ambiente Linux, utilizando Shell Script.
 
+Além da automação, o sistema foi concebido com foco em controle e segurança, permitindo identificar rapidamente alterações realizadas em arquivos e diretórios monitorados. Dessa forma, o DirWatch contribui para a manutenção da integridade do ambiente monitorado, registrando eventos de criação, modificação e remoção de arquivos por meio de logs e notificações em tempo real.
+
 Além disso, o projeto buscou aplicar na prática conceitos estudados durante a disciplina, como:
 
 - Estruturas condicionais
@@ -48,12 +50,13 @@ dirwatch/
 ├── config/
 │   └── config.conf
 ├── docs/
-│   ├── banner-dirwatch.png
+│   └── banner-dirwatch.png
+│   └── icon-dirwatch.png
 │   └── relatorio.md
 ├── logs/
 │   └── .gitkeep
 ├── monitored/
-│   └── exemplo.txt
+│   └── .gitkeep
 ├── src/
 │   └── dirwatch.sh
 ├── tests/
@@ -239,20 +242,23 @@ Essa abordagem permitiu maior organização e rastreabilidade durante o desenvol
 ---
 
 ## 12. Uso de Inteligência Artificial
+O projeto contou com apoio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
 
-Conforme solicitado pela disciplina, o projeto contou com apoio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
+A utilização da IA teve caráter exclusivamente consultivo e educacional, sendo empregada como ferramenta de apoio durante o desenvolvimento do sistema. Entre as principais contribuições, destacam-se:
 
-A IA foi utilizada para:
-- Auxílio na depuração e correção de erros
-- Sugestões de melhoria na organização do código
-- Apoio na estruturação da documentação
-- Auxílio na criação da identidade visual do projeto
-- Sugestões para implementação de cores ANSI no terminal
-- Auxílio na implementação do comando `trap` para encerramento controlado do sistema
-- Revisão de boas práticas em Shell Script
-- Sugestões relacionadas à organização com Git e GitHub
+- Auxílio na identificação e correção de erros de sintaxe em Shell Script;
+- Sugestões de refatoração para melhorar a legibilidade e organização do código;
+- Explicação de comandos, estruturas e recursos da linguagem Bash utilizados no projeto;
+- Apoio na implementação de funcionalidades complementares, como utilização de códigos ANSI para exibição de mensagens coloridas no terminal;
+- Auxílio na compreensão e utilização do comando trap, empregado para realizar o encerramento controlado do sistema e exibição das estatísticas finais de execução;
+- Sugestões para implementação do contador de eventos monitorados;
+- Apoio na criação do script automatizado de testes para validação das funcionalidades do sistema;
+- Sugestões relacionadas à organização da estrutura de diretórios do projeto;
+- Apoio na elaboração da documentação técnica, incluindo o README e este relatório;
+- Auxílio na criação da identidade visual do projeto, incluindo o conceito do banner utilizado na documentação;
+- Orientações sobre boas práticas de versionamento utilizando Git e GitHub, incluindo uso de branches, commits e merges.
 
-Toda a implementação, testes, validação e entendimento do sistema foram realizados pelos integrantes do grupo.
+É importante ressaltar que toda a implementação do código-fonte, realização dos testes, validação dos resultados, tomada de decisões técnicas e compreensão dos conceitos utilizados foram realizadas pelos integrantes do grupo. A Inteligência Artificial foi utilizada apenas como ferramenta de apoio ao aprendizado e ao desenvolvimento do projeto.
 
 ---
 
