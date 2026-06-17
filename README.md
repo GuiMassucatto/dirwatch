@@ -66,7 +66,7 @@ dirwatch/
 ├── logs/  -> Logs gerados automaticamente
 │   └── .gitkeep
 ├── monitored/  -> Diretório monitorado
-│   └── exemplo.txt
+│   └── .gitkeep
 ├── src/  -> Script principal
 │   └── dirwatch.sh
 ├── tests/  -> Script de teste automatizado
@@ -174,7 +174,7 @@ Até logo!
 
 ## 🤖 Uso de IA
 
-Conforme solicitado pela disciplina, este projeto contou com o auxílio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
+Este projeto contou com o auxílio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
 
 A IA foi utilizada para:
 
