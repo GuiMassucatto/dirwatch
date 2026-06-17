@@ -18,10 +18,15 @@ O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, c
 ---
 
 ## 🎯 Objetivo do Projeto  
-Este projeto foi desenvolvido como parte da disciplina de **Laboratório de Ferramentas de Programação**, com o objetivo de automatizar uma tarefa com Shell Script. Para isso, foi utilizado:  
-- Shell Script  
-- Estruturas de controle  
+Este projeto foi desenvolvido como parte da disciplina de Laboratório de Ferramentas de Programação, com o objetivo de automatizar o monitoramento de diretórios utilizando Shell Script. Além da automação, o sistema busca auxiliar na integridade e no acompanhamento de alterações em arquivos, permitindo identificar rapidamente eventos de criação, modificação e remoção dentro de um diretório monitorado.
+
+Para o desenvolvimento do projeto, foram aplicados conceitos como:
+- Shell Script
+- Estruturas de controle
+- Manipulação de arquivos e diretórios
+- Registro de logs
 - Git/GitHub para versionamento
+- Monitoramento de eventos para apoio à integridade do diretório
 
 ---
 
@@ -56,6 +61,8 @@ dirwatch/
 │   └── config.conf
 ├── docs/  -> Documentação e identidade visual
 │   └── banner-dirwatch.png
+│   └── icon-dirwatch.png
+│   └── relatorio.md
 ├── logs/  -> Logs gerados automaticamente
 │   └── .gitkeep
 ├── monitored/  -> Diretório monitorado
@@ -100,6 +107,10 @@ chmod +x tests/teste.sh
 ./src/dirwatch.sh
 ```
 
+5. Observação:
+
+- O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
+
 ---
 
 ## 🧪 Teste Automático
@@ -126,6 +137,10 @@ permitindo validar rapidamente o funcionamento do sistema.
 ```bash
 ./tests/teste.sh
 ```
+
+3. Observação:
+
+- O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
 
 ---
 
