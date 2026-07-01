@@ -10,7 +10,7 @@ Sistema de Monitoramento de Diretórios em Bash
 ---
 
 ## 📘 Descrição  
-O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos em tempo real, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
+O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos de forma contínua, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
 - Criação de arquivos  
 - Modificação de arquivos  
 - Remoção de arquivos
@@ -18,10 +18,15 @@ O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, c
 ---
 
 ## 🎯 Objetivo do Projeto  
-Este projeto foi desenvolvido como parte da disciplina de **Laboratório de Ferramentas de Programação**, com o objetivo de automatizar uma tarefa com Shell Script. Para isso, foi utilizado:  
-- Shell Script  
-- Estruturas de controle  
+Este projeto foi desenvolvido como parte da disciplina de Laboratório de Ferramentas de Programação, com o objetivo de automatizar o monitoramento de diretórios utilizando Shell Script. Além da automação, o sistema busca auxiliar na integridade e no acompanhamento de alterações em arquivos, permitindo identificar rapidamente eventos de criação, modificação e remoção dentro de um diretório monitorado.
+
+Para o desenvolvimento do projeto, foram aplicados conceitos como:
+- Shell Script
+- Estruturas de controle
+- Manipulação de arquivos e diretórios
+- Registro de logs
 - Git/GitHub para versionamento
+- Monitoramento de eventos para apoio à integridade do diretório
 
 ---
 
@@ -56,10 +61,12 @@ dirwatch/
 │   └── config.conf
 ├── docs/  -> Documentação e identidade visual
 │   └── banner-dirwatch.png
+│   └── icon-dirwatch.png
+│   └── relatorio.md
 ├── logs/  -> Logs gerados automaticamente
 │   └── .gitkeep
 ├── monitored/  -> Diretório monitorado
-│   └── exemplo.txt
+│   └── .gitkeep
 ├── src/  -> Script principal
 │   └── dirwatch.sh
 ├── tests/  -> Script de teste automatizado
@@ -75,6 +82,7 @@ dirwatch/
 - **Linux Ubuntu** → Ambiente de desenvolvimento e execução
 - **Git** → Controle de versionamento
 - **GitHub** → Hospedagem do repositório
+- **Markdown** → Documentação do projeto
 
 ---
 
@@ -99,6 +107,8 @@ chmod +x tests/teste.sh
 ```bash
 ./src/dirwatch.sh
 ```
+
+> **Observação:** O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
 
 ---
 
@@ -126,6 +136,8 @@ permitindo validar rapidamente o funcionamento do sistema.
 ```bash
 ./tests/teste.sh
 ```
+
+> **Observação:** O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
 
 ---
 
@@ -155,11 +167,31 @@ Log salvo em: ./logs/monitor.log
 Até logo!
 ```
 
+> Os horários exibidos acima são apenas um exemplo de execução.
+
+---
+
+## 🎥 Vídeo de Demonstração
+[Vídeo demonstrando o funcionamento do projeto.webm](https://github.com/user-attachments/assets/5d2259ff-8aaf-409a-8f8a-07729377d5db)
+
+Neste vídeo é apresentada uma visão geral do projeto **DirWatch**, incluindo:
+
+- Objetivo e proposta do sistema;
+- Estrutura do repositório e documentação;
+- Funcionamento do script principal;
+- Demonstração do monitoramento de diretórios em tempo real;
+- Execução do script de testes automatizados;
+- Tecnologias utilizadas durante o desenvolvimento.
+
+O vídeo complementa a documentação do projeto, demonstrando na prática o funcionamento das funcionalidades implementadas.
+
+> **Observação:** O vídeo foi gravado antes das últimas revisões na documentação do projeto. As alterações realizadas posteriormente foram voltadas à organização e ao aprimoramento do README e do relatório técnico, não havendo mudanças no funcionamento ou nas funcionalidades do DirWatch.
+
 ---
 
 ## 🤖 Uso de IA
 
-Conforme solicitado pela disciplina, este projeto contou com o auxílio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
+Este projeto contou com o auxílio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
 
 A IA foi utilizada para:
 
@@ -175,8 +207,26 @@ Toda a implementação, testes, validação e entendimento do código foram real
 
 ---
 
-## 👥 Integrantes
+## 👥 Integrantes e Responsabilidades
 - Guilherme Stafocher Massucatto (RA: 322151)
+  
+  - Controle de versão com Git e GitHub
+  - Organização do repositório
+  - Gravação do vídeo
+  
 - Kaik Medeiros Calarga (RA: 308782)
+
+  - Documentação do sistema
+  - Testes dos scripts
+  - Gravação do vídeo
+    
 - Luiz Guilherme Barros Moragas (RA: 312382)
+
+  - Automação com scripts
+  - Gravação do vídeo
+    
 - Matheus Del Fiol Moretti (RA: 312393)
+  
+  - Definição da estrutura de pastas
+  - Lógica do sistema
+  - Gravação do vídeo

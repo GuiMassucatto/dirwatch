@@ -2,14 +2,16 @@
 
 # ==========================
 # DIRWATCH
-# Sistema de monitoramento
+# Sistema de monitoramento de diretórios em Bash
 # ==========================
 
+# Carrega as configurações do sistema, como diretório monitorado, intervalo de verificação e local do arquivo de log.
 source ./config/config.conf
 
 # ==========================
-# CORES
+# CORES ANSI
 # ==========================
+# Utilizadas para destacar visualmente os eventos detectados no terminal.
 
 VERDE='\033[0;32m'
 VERMELHO='\033[0;31m'
@@ -17,8 +19,9 @@ AMARELO='\033[1;33m'
 RESET='\033[0m'
 
 # ==========================
-# CONTADORES
+# CONTADORES DE EVENTOS
 # ==========================
+# Armazenam a quantidade de arquivos criados, modificados e removidos durante a execução do sistema.
 
 criadas=0
 modificadas=0
@@ -27,6 +30,7 @@ removidas=0
 # ==========================
 # VERIFICA DIRETÓRIO
 # ==========================
+# Garante que o diretório informado na configuração exista antes de iniciar o monitoramento.
 
 if [[ ! -d "$DIR_MONITORADO" ]]
 then
@@ -35,8 +39,9 @@ then
 fi
 
 # ==========================
-# CRIA LOG
+# CRIA ARQUIVO DE LOG
 # ==========================
+# Caso o arquivo de log ainda não exista, ele é criado automaticamente.
 
 if [[ ! -f "$LOG_FILE" ]]
 then
@@ -46,6 +51,7 @@ fi
 # ==========================
 # TELA INICIAL
 # ==========================
+# Exibe informações básicas sobre a execução do sistema.
 
 echo "===================================="
 echo " DIRWATCH INICIADO"
@@ -58,6 +64,8 @@ echo "===================================="
 # ==========================
 # ESTADO INICIAL
 # ==========================
+# Armazena uma fotografia inicial do diretório monitorado.
+# Cada linha possui o formato: nome_do_arquivo:tamanho.
 
 estado_antigo=""
 
@@ -70,8 +78,9 @@ $arquivo:$tamanho"
 done
 
 # ==========================
-# ENCERRAMENTO
+# FUNÇÃO DE ENCERRAMENTO
 # ==========================
+# Executada quando o usuário pressiona CTRL+C e exibe estatísticas finais antes de encerrar o programa.
 
 encerrar() {
     echo
@@ -89,19 +98,22 @@ encerrar() {
     exit 0
 }
 
+# Associa o sinal SIGINT (CTRL+C) à função de encerramento.
 trap encerrar SIGINT
 
 # ==========================
 # MONITORAMENTO
 # ==========================
+# Executa continuamente enquanto o sistema estiver ativo.
 
 while true
 do
     estado_novo=""
 
     # ==========================
-    # MONTA ESTADO NOVO
+    # MONTA O ESTADO ATUAL
     # ==========================
+    # Captura novamente os arquivos existentes e seus tamanhos para posterior comparação.
 
     for arquivo in $(ls "$DIR_MONITORADO")
     do
@@ -114,6 +126,7 @@ $arquivo:$tamanho"
     # ==========================
     # CRIAÇÃO E MODIFICAÇÃO
     # ==========================
+    # Verifica se os arquivos atuais são novos ou tiveram alteração de tamanho desde a última leitura.
 
     for arquivo in $(ls "$DIR_MONITORADO")
     do
@@ -121,12 +134,12 @@ $arquivo:$tamanho"
 
         linha_antiga=$(echo "$estado_antigo" | grep "^$arquivo:")
 
-        # Arquivo criado
+        # Arquivo não existia anteriormente.
         if [[ -z "$linha_antiga" ]]
         then
             mensagem="[CRIADO] $arquivo em $(date)"
 
-	    ((criadas++))
+            ((criadas++))
 
             echo -e "${VERDE}$mensagem${RESET}"
             echo "$mensagem" >> "$LOG_FILE"
@@ -134,13 +147,13 @@ $arquivo:$tamanho"
         else
             tamanho_antigo=$(echo "$linha_antiga" | cut -d ":" -f 2)
 
-            # Arquivo modificado
+            # Caso o tamanho seja diferente, considera-se que o arquivo foi modificado.
             if [[ "$tamanho_antigo" != "$tamanho_novo" ]]
             then
                 mensagem="[MODIFICADO] $arquivo em $(date)"
 
-		((modificadas++))
-		
+                ((modificadas++))
+
                 echo -e "${AMARELO}$mensagem${RESET}"
                 echo "$mensagem" >> "$LOG_FILE"
             fi
@@ -148,8 +161,9 @@ $arquivo:$tamanho"
     done
 
     # ==========================
-    # REMOÇÃO
+    # REMOÇÃO DE ARQUIVOS
     # ==========================
+    # Percorre o estado anterior e verifica se algum arquivo deixou de existir no diretório monitorado.
 
     for linha in $(echo "$estado_antigo")
     do
@@ -161,7 +175,7 @@ $arquivo:$tamanho"
             then
                 mensagem="[REMOVIDO] $arquivo em $(date)"
 
-		((removidas++))
+                ((removidas++))
 
                 echo -e "${VERMELHO}$mensagem${RESET}"
                 echo "$mensagem" >> "$LOG_FILE"
@@ -169,8 +183,13 @@ $arquivo:$tamanho"
         fi
     done
 
-    # Atualiza estado
+    # ==========================
+    # ATUALIZA REFERÊNCIA
+    # ==========================
+    # O estado atual passa a ser o estado antigo da próxima iteração.
+
     estado_antigo="$estado_novo"
 
+    # Aguarda o intervalo definido antes de realizar nova verificação.
     sleep "$INTERVALO"
 done
