@@ -195,8 +195,26 @@ Toda a implementação, testes, validação e entendimento do código foram real
 
 ---
 
-## 👥 Integrantes
+## 👥 Integrantes e Responsabilidades
 - Guilherme Stafocher Massucatto (RA: 322151)
+  
+  - Controle de versões
+  - Git/Github
+  - Gravação do vídeo
+  
 - Kaik Medeiros Calarga (RA: 308782)
+
+  - Documentação do sistema
+  - Testes dos scripts
+  - Gravação do vídeo
+    
 - Luiz Guilherme Barros Moragas (RA: 312382)
+
+  - Automação com scripts
+  - Gravação do vídeo
+    
 - Matheus Del Fiol Moretti (RA: 312393)
+  
+  - Definição da estrutura de pastas
+  - Lógica do sistema
+  - Gravação do vídeo
