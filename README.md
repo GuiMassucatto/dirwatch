@@ -9,6 +9,11 @@ Sistema de Monitoramento de Diretórios em Bash
 
 ---
 
+## 🎥 Vídeo
+[Gravação de tela de 2026-07-01 14-32-33.webm](https://github.com/user-attachments/assets/ac2a35b6-3e91-4e2f-ab4f-e1759559d85d)
+
+---
+
 ## 📘 Descrição  
 O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos em tempo real, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
 - Criação de arquivos  
