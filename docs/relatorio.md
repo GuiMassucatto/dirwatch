@@ -241,7 +241,23 @@ Essa abordagem permitiu maior organização e rastreabilidade durante o desenvol
 
 ---
 
-## 12. Uso de Inteligência Artificial
+## 12. Vídeo de Demonstração
+[Vídeo demonstrando o funcionamento do projeto.webm](https://github.com/user-attachments/assets/5d2259ff-8aaf-409a-8f8a-07729377d5db)
+
+Neste vídeo é apresentada uma visão geral do projeto **DirWatch**, incluindo:
+
+- Objetivo e proposta do sistema;
+- Estrutura do repositório e documentação;
+- Funcionamento do script principal;
+- Demonstração do monitoramento de diretórios em tempo real;
+- Execução do script de testes automatizados;
+- Tecnologias utilizadas durante o desenvolvimento.
+
+O vídeo complementa a documentação do projeto, demonstrando na prática o funcionamento das funcionalidades implementadas.
+
+---
+
+## 13. Uso de Inteligência Artificial
 O projeto contou com apoio de Inteligência Artificial Generativa em etapas específicas do desenvolvimento.
 
 A utilização da IA teve caráter exclusivamente consultivo e educacional, sendo empregada como ferramenta de apoio durante o desenvolvimento do sistema. Entre as principais contribuições, destacam-se:
@@ -262,7 +278,7 @@ A utilização da IA teve caráter exclusivamente consultivo e educacional, send
 
 ---
 
-## 13. Conclusão
+## 14. Conclusão
 O desenvolvimento do DirWatch permitiu aplicar de forma prática diversos conceitos fundamentais relacionados à automação em Linux utilizando Shell Script.
 Além disso, o projeto contribuiu para o aprendizado de:
 - Monitoramento de arquivos
