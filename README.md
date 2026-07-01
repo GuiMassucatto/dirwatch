@@ -10,7 +10,7 @@ Sistema de Monitoramento de Diretórios em Bash
 ---
 
 ## 📘 Descrição  
-O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos em tempo real, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
+O DirWatch é um sistema de monitoramento de diretórios desenvolvido em Bash, capaz de detectar alterações em arquivos de forma contínua, registrando eventos automaticamente em logs e exibindo alertas coloridos no terminal. Ele detecta eventos como: 
 - Criação de arquivos  
 - Modificação de arquivos  
 - Remoção de arquivos
@@ -82,6 +82,7 @@ dirwatch/
 - **Linux Ubuntu** → Ambiente de desenvolvimento e execução
 - **Git** → Controle de versionamento
 - **GitHub** → Hospedagem do repositório
+- **Markdown** → Documentação do projeto
 
 ---
 
@@ -107,9 +108,7 @@ chmod +x tests/teste.sh
 ./src/dirwatch.sh
 ```
 
-5. Observação:
-
-- O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
+> **Observação:** O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
 
 ---
 
@@ -138,9 +137,7 @@ permitindo validar rapidamente o funcionamento do sistema.
 ./tests/teste.sh
 ```
 
-3. Observação:
-
-- O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
+> **Observação:** O script deve ser executado a partir da raiz do projeto para que os caminhos relativos funcionem corretamente.
 
 ---
 
@@ -170,6 +167,8 @@ Log salvo em: ./logs/monitor.log
 Até logo!
 ```
 
+> Os horários exibidos acima são apenas um exemplo de execução.
+
 ---
 
 ## 🎥 Vídeo de Demonstração
@@ -185,6 +184,8 @@ Neste vídeo é apresentada uma visão geral do projeto **DirWatch**, incluindo:
 - Tecnologias utilizadas durante o desenvolvimento.
 
 O vídeo complementa a documentação do projeto, demonstrando na prática o funcionamento das funcionalidades implementadas.
+
+> **Observação:** O vídeo foi gravado antes das últimas revisões na documentação do projeto. As alterações realizadas posteriormente foram voltadas à organização e ao aprimoramento do README e do relatório técnico, não havendo mudanças no funcionamento ou nas funcionalidades do DirWatch.
 
 ---
 
@@ -209,8 +210,8 @@ Toda a implementação, testes, validação e entendimento do código foram real
 ## 👥 Integrantes e Responsabilidades
 - Guilherme Stafocher Massucatto (RA: 322151)
   
-  - Controle de versões
-  - Git/Github
+  - Controle de versão com Git e GitHub
+  - Organização do repositório
   - Gravação do vídeo
   
 - Kaik Medeiros Calarga (RA: 308782)
