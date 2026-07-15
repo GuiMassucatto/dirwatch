@@ -171,21 +171,27 @@ Até logo!
 
 ---
 
-## 🎥 Vídeo de Demonstração
+## 🎥 Vídeos de Demonstração
+
+### 📽️ Apresentação Completa
+
+Neste vídeo é apresentada uma visão geral do projeto, incluindo sua proposta, estrutura do repositório, documentação, funcionamento do sistema e tecnologias utilizadas.
+
 [Vídeo demonstrando o funcionamento do projeto.webm](https://github.com/user-attachments/assets/5d2259ff-8aaf-409a-8f8a-07729377d5db)
 
-Neste vídeo é apresentada uma visão geral do projeto **DirWatch**, incluindo:
+---
 
-- Objetivo e proposta do sistema;
-- Estrutura do repositório e documentação;
-- Funcionamento do script principal;
-- Demonstração do monitoramento de diretórios em tempo real;
-- Execução do script de testes automatizados;
-- Tecnologias utilizadas durante o desenvolvimento.
+### ⚡ Funcionamento do Sistema
 
-O vídeo complementa a documentação do projeto, demonstrando na prática o funcionamento das funcionalidades implementadas.
+Este vídeo apresenta apenas a execução do **DirWatch**, demonstrando o monitoramento em tempo real do diretório, a detecção dos eventos de criação, modificação e remoção de arquivos, além do encerramento controlado do sistema.
 
-> **Observação:** O vídeo foi gravado antes das últimas revisões na documentação do projeto. As alterações realizadas posteriormente foram voltadas à organização e ao aprimoramento do README e do relatório técnico, não havendo mudanças no funcionamento ou nas funcionalidades do DirWatch.
+[Funcionamento do sistema (resumido).webm](https://github.com/user-attachments/assets/f766a660-14b2-4a1a-bde5-8904a1f47aba)
+
+---
+
+Os vídeos complementam a documentação do projeto, demonstrando na prática as funcionalidades implementadas e a forma correta de utilização do sistema.
+
+> **Observação:** A apresentação completa foi gravada antes das últimas revisões na documentação do projeto. As alterações realizadas posteriormente foram voltadas apenas à organização e ao aprimoramento do README e do relatório técnico, não havendo mudanças no funcionamento ou nas funcionalidades do DirWatch.
 
 ---
 
